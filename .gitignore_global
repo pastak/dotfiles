@@ -1,0 +1,9 @@
+*.swp
+.DS_Store
+*.orig
+vendor
+.tags*
+npm-debug.log
+dump.rdb
+!*.gitkeep
+node_modules
