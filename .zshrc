@@ -85,3 +85,4 @@ source '/Users/pastak/tools/google-cloud-sdk/path.zsh.inc'
 source '/Users/pastak/tools/google-cloud-sdk/completion.zsh.inc'
 
 export PATH="node_modules/.bin:$PATH"
+export RUBYGEMS_GEMDEPS=-
