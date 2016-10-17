@@ -24,6 +24,9 @@ mkdir -p ~/.tmux/plugins ~/bin/
 # download tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
+git submodule init
+git submodule update
+
 # download diff-hightlight
 curl https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight -o diff-highlight
 chmod +x diff-highlight
