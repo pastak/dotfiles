@@ -23,6 +23,7 @@
 	psuh = push
 	pus = push
 	puh = push
+	amend = commit --amend
 	pl = !git pull && git submodule update --init
 	show-ignored = ls-files --exclude-standard --others --ignored
 	show-orphans = !git log --oneline --graph --decorate `git reflog | cut -c1-7`
