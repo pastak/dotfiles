@@ -31,9 +31,9 @@ hook_post_update = '''
 [[plugins]]
 repo = 'hail2u/vim-css3-syntax'
 [[plugins]]
-repo = 'teramako/jscomplete-vim'
+repo = 'mattn/jscomplete-vim'
 [[plugins]]
-repo = 'amdt/vim-niji'
+repo = 'losingkeys/vim-niji'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 [[plugins]]

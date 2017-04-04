@@ -1,12 +1,15 @@
 #!/bin/sh
 DOT_DIRECTORY=$(pwd)
 
-if [ "$(uname)" == 'Darwin' ]; then
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew update
-  brew install go nvm peco zsh rbenv ruby-build vim tmux reattach-to-user-namespace hub
-  zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-fi
+xcode-select --install
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace hub
+brew install vim --with-lua
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.8
+
 
 mkdir -p ~/.tmux/plugins ~/bin/
 

@@ -14,11 +14,7 @@ ZSH=$HOME/.oh-my-zsh
 
 plugins=(git osx web-search vi-mode rails)
 
-# Customize to your needs...
-export PATH=~/.rbenv/bin/:~/.plenv/bin:~/.phpenv/bin:~/bin/:/usr/local/share/npm/bin:$PATH
-
 eval "$(rbenv init - zsh)"
-alias ls='gls -a --color'
 
 export LS_COLORS
 
@@ -40,14 +36,6 @@ cdpath=(.. ~)
 source ~/.nvm/nvm.sh
 export NOTIFY_COMMAND_COMPLETE_TIMEOUT=20
 
-eval "$(hub alias -s)"
-compdef hub=git
-alias cd-ghq='cd $(ghq list -p | peco)'
-alias vi=vim
-
-alias ci='`git log --oneline | peco |cut -c 1-7`' -g
-alias atom='atom .'
-
 # git add with peco
 # via http://petitviolet.hatenablog.com/entry/20140722/1406034439
 function peco-select-gitadd() {
@@ -64,13 +52,20 @@ zle clear-screen
 zle -N peco-select-gitadd
 bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
-export PATH="/usr/local/sbin:$PATH"
-
-export PATH="node_modules/.bin:$PATH"
+export PATH="/usr/local/sbin:~/.rbenv/bin/:~/bin/:/usr/local/share/npm/bin:$PATH"
 export RUBYGEMS_GEMDEPS=-
 source $ZSH/oh-my-zsh.sh
+
+alias ls='gls -a --color'
+eval "$(hub alias -s)"
+alias cd-ghq='cd $(ghq list -p | peco)'
+alias vi=vim
+
+alias ci='`git log --oneline | peco |cut -c 1-7`' -g
+alias atom='atom .'
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+[[ -s "/Users/pastak/.gvm/scripts/gvm" ]] && source "/Users/pastak/.gvm/scripts/gvm"
