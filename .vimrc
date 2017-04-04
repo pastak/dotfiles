@@ -86,24 +86,39 @@ autocmd BufNewFile *.user.js silent! 0r ~/.vim/templates/user.js.tpl
 autocmd BufNewFile * silent! 0r ~/.vim/templates/%:e.tpl
 au BufNewFile,BufRead *.pde setf arduino
 
-"Bundle関係
-set nocompatible
-filetype off
-"
-if has('vim_starting')
-	set runtimepath+=~/.vim/neobundle.vim.git
-	call neobundle#rc(expand('~/.bundle'))
+let s:dein_dir = expand('~/.cache/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
 
-"NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'naberon/vim-cakehtml'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
-NeoBundle 'rhysd/vim-operator-surround'
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'osyo-manga/vim-textobj-multiblock'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'yosssi/vim-ace'
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  let g:rc_dir    = expand('~/.vim/rc')
+  let s:toml      = g:rc_dir . '/dein.toml'
+  "let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  "call dein#load_toml(s:lazy_toml, {'lazy': 1})
+
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
 " operator mappings
 map <silent>sa <Plug>(operator-surround-append)
 map <silent>sd <Plug>(operator-surround-delete)
@@ -111,48 +126,15 @@ map <silent>sr <Plug>(operator-surround-replace)
 " if you use vim-textobj-multiblock
 nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
 nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
-NeoBundle 'moznion/hateblo.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'aharisu/vim_goshrepl'
-NeoBundle 'Shougo/vimshell'
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-    \ 'mac' : 'make -f make_mac.mak'
-  \},
- \}
-NeoBundle 'hail2u/vim-css3-syntax'
-NeoBundle 'teramako/jscomplete-vim'
-NeoBundle 'amdt/vim-niji'
-"NeoBundle 'Markdown'
-"NeoBundle 'suan/vim-instant-markdown'
-NeoBundle 'plasticboy/vim-markdown'
+
 let g:vim_markdown_folding_disabled=1
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'git@github.com:kannokanno/previm.git'
-"let g:previm_open_cmd = 'open -a Google\ Chrome'
 autocmd BufRead,BufNewFile *.mkd  setfiletype markdown
 autocmd BufRead,BufNewFile *.md  setfiletype markdown
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'hotchpotch/perldoc-vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'jelera/vim-javascript-syntax'
-"NeoBundle 'moznion/jskotobuki-vim'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'kmnk/vim-unite-giti.git'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'mattn/webapi-vim'
+
 let g:gist_clip_command = 'pbcopy'
 let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'itchyny/calendar.vim'
-let g:calendar_google_calendar = 1
-let g:calendar_google_task = 1
-NeoBundle 'itchyny/lightline.vim'
+
 let g:lightline = {
     \ 'colorscheme': 'solarized',
     \ 'active': {
@@ -168,6 +150,7 @@ let g:lightline = {
     \ 'separator': { 'left': '⮀', 'right': '⮂' },
     \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
     \ }
+
 
 function! MyModified()
     if &filetype == "help"

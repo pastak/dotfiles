@@ -1,0 +1,64 @@
+[[plugins]]
+repo = 'rhysd/vim-operator-surround'
+[[plugins]]
+repo = 'kana/vim-operator-user'
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+[[plugins]]
+repo = 'fatih/vim-go'
+[[plugins]]
+repo = 'yosssi/vim-ace'
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+[[plugins]]
+repo = 'Shougo/vimshell'
+[[plugins]]
+repo = 'Shougo/vimproc'
+hook_post_update = '''
+  if dein#util#_is_windows()
+    let cmd = 'tools\\update-dll-mingw'
+  elseif dein#util#_is_cygwin()
+    let cmd = 'make -f make_cygwin.mak'
+  elseif executable('gmake')
+    let cmd = 'gmake'
+  else
+    let cmd = 'make'
+  endif
+  let g:dein#plugin.build = cmd
+'''
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+[[plugins]]
+repo = 'teramako/jscomplete-vim'
+[[plugins]]
+repo = 'amdt/vim-niji'
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+[[plugins]]
+repo = 'superbrothers/vim-quickrun-markdown-gfm'
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+[[plugins]]
+repo = 'git@github.com:kannokanno/previm.git'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+[[plugins]]
+repo = 'Shougo/unite.vim'
+[[plugins]]
+repo = 'kmnk/vim-unite-giti.git'
+[[plugins]]
+repo = 'mattn/gist-vim'
+[[plugins]]
+repo = 'mattn/webapi-vim'
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+[[plugins]]
+repo = 'itchyny/lightline.vim'
