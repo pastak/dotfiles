@@ -1,7 +1,7 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
- ZSH_THEME="daveverwer"
+ ZSH_THEME="mgutz"
 
 # Comment this out to disable bi-weekly auto-update checks
  DISABLE_AUTO_UPDATE="true"
