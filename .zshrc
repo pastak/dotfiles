@@ -53,7 +53,6 @@ zle -N peco-select-gitadd
 bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
 export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin/:~/bin/:/usr/local/share/npm/bin:$PATH"
-export RUBYGEMS_GEMDEPS=-
 source $ZSH/oh-my-zsh.sh
 
 
