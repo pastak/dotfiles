@@ -8,8 +8,11 @@ brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace
 brew install vim --with-lua
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+gvm install go1.6.3 -B
+gvm use go1.6.3
+export GOROOT_BOOTSTRAP=$GOROOT
 gvm install go1.8
-
+gvm use go1.8
 
 mkdir -p ~/.tmux/plugins ~/bin/
 

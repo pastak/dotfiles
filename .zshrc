@@ -52,15 +52,16 @@ zle clear-screen
 zle -N peco-select-gitadd
 bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
-export GOPATH=~/.gopath/1.8
 export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin/:~/bin/:/usr/local/share/npm/bin:$PATH"
 export RUBYGEMS_GEMDEPS=-
 source $ZSH/oh-my-zsh.sh
+
 
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'
 alias vi=vim
+alias be='bundle exec'
 
 alias ci='`git log --oneline | peco |cut -c 1-7`' -g
 alias atom='atom .'
@@ -70,3 +71,9 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 [[ -s "/Users/pastak/.gvm/scripts/gvm" ]] && source "/Users/pastak/.gvm/scripts/gvm"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pastak/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/pastak/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pastak/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/pastak/google-cloud-sdk/completion.zsh.inc'; fi
