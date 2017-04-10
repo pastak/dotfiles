@@ -4,7 +4,7 @@ DOT_DIRECTORY=$(pwd)
 xcode-select --install
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
-brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace hub
+brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace hub wget
 brew install vim --with-lua
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 zsh < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
@@ -23,7 +23,7 @@ git submodule init
 git submodule update
 
 # download diff-hightlight
-curl https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight -o diff-highlight
+wget https://raw.github.com/git/git/master/contrib/diff-highlight/diff-highlight -o diff-highlight
 chmod +x diff-highlight
 mv diff-highlight ~/bin
 
