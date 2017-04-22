@@ -12,7 +12,7 @@ ZSH=$HOME/.oh-my-zsh
 # Uncomment following line if you want to disable autosetting terminal title.
  DISABLE_AUTO_TITLE="true"
 
-plugins=(git osx web-search vi-mode rails)
+plugins=(git osx web-search vi-mode)
 
 eval "$(rbenv init - zsh)"
 
@@ -52,10 +52,10 @@ zle clear-screen
 zle -N peco-select-gitadd
 bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
-export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin/:~/bin/:/usr/local/share/npm/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 
+export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:$PATH"
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'

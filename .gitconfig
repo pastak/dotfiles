@@ -23,13 +23,19 @@
 	psuh = push
 	pus = push
 	puh = push
-	amend = commit --amend
+    amend = commit --date now --amend
 	pl = !git pull && git submodule update --init
 	show-ignored = ls-files --exclude-standard --others --ignored
 	show-orphans = !git log --oneline --graph --decorate `git reflog | cut -c1-7`
+	https-to-ssl = "!git remote show origin | grep \"Fetch URL\" | grep -o -e https:\\/\\/github\\.com/.\\* | sed -e \"s/https:\\/\\//git@/\" -e \"s/\\.com\\//.com:/\" | xargs -n2 -I{} sh -c \"git remote rm origin; git remote add origin {};echo set remote origin {}\""
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
     diff = diff-highlight | less
 [merge]
 	tool = vimdiff
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
