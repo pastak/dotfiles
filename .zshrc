@@ -55,7 +55,7 @@ export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
 
-export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:$PATH"
+export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'
