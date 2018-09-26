@@ -1,18 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
- ZSH_THEME="mgutz"
+ZSH_THEME="mgutz"
 
-# Comment this out to disable bi-weekly auto-update checks
- DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_TITLE="true"
 
-# Uncomment to change how often before auto-updates occur? (in days)
- export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable autosetting terminal title.
- DISABLE_AUTO_TITLE="true"
-
-plugins=(git osx web-search vi-mode)
+plugins=(git osx web-search yarn)
 
 eval "$(rbenv init - zsh)"
 
@@ -54,8 +47,8 @@ bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
-
-export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH="/usr/local/texlive/2017/bin/x86_64-darwin:$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'
@@ -63,7 +56,9 @@ alias vi=vim
 alias be='bundle exec'
 
 alias ci='`git log --oneline | peco |cut -c 1-7`' -g
-alias atom='atom .'
+alias atom='code'
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+alias chrome-canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -76,3 +71,10 @@ if [ -f '/Users/pastak/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/pas
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/pastak/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/pastak/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+fpath=($HOME/.zsh/completions $fpath)
+
+# OPAM configuration
+. /Users/pastak/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
