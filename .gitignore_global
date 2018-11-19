@@ -8,3 +8,4 @@ dump.rdb
 !*.gitkeep
 node_modules
 yarn-error.log
+cpanfile.snapshot
