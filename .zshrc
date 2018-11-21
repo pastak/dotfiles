@@ -47,9 +47,7 @@ bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
-export ANDROID_HOME=$HOME/Library/Android/sdk
-
-export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:/usr/local/share/npm/bin:$ANDROID_HOME/tools:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:/usr/local/share/npm/bin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'
