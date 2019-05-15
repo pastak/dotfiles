@@ -8,12 +8,6 @@ brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace
 brew install vim --with-lua
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
-
-
-
-
-
-
 mkdir -p ~/.tmux/plugins ~/bin/
 
 # download tmux plugin manager
@@ -34,11 +28,4 @@ curl https://gist.githubusercontent.com/pastak/8223238b0c46fcc82db6/raw/gistfile
 mkdir -p ~/.vim/rc
 ln -snfv ${DOT_DIRECTORY}/vim/rc/dein.toml ${HOME}/.vim/rc/dein.toml
 
-for f in .??*
-do
-    [[ ${f} = ".git" ]] && continue
-    [[ ${f} = ".gitignore" ]] && continue
-    [[ ${f} = "initialize.sh" ]] && continue
-    [[ ${f} = "vim" ]] && continue
-    ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-done
+sh ${DOT_DIRECTORY}/symlink.sh
