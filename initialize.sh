@@ -28,7 +28,7 @@ chmod +x diff-highlight
 mv diff-highlight ~/bin
 
 # tmux-pbcopy
-curl https://gist.githubusercontent.com/pastak/8223238b0c46fcc82db6/raw/90996e0b77398c68b14265c7927b49e063100811/gistfile1.txt > ~/bin/tmux-pbcopy
+curl https://gist.githubusercontent.com/pastak/8223238b0c46fcc82db6/raw/gistfile1.txt > ~/bin/tmux-pbcopy
 
 # dein.vim
 mkdir -p ~/.vim/rc
@@ -42,10 +42,3 @@ do
     [[ ${f} = "vim" ]] && continue
     ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
-
-echo "*** Install some App by yourself ***"
-echo "Install Atom Editor https://atom.io/docs/latest/getting-started-installing-atom"
-echo "Install atom-sync-settings https://github.com/Hackafe/atom-sync-settings"
-echo "  `% apm install sync-settings`"
-echo "Sync settings from e25710cba9a8770a4d70 and set pastak's token"
-echo "*** /END ***"
