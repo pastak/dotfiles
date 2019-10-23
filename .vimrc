@@ -127,6 +127,8 @@ map <silent>sr <Plug>(operator-surround-replace)
 nmap <silent>sdd <Plug>(operator-surround-delete)<Plug>(textobj-multiblock-a)
 nmap <silent>srr <Plug>(operator-surround-replace)<Plug>(textobj-multiblock-a)
 
+nmap <Esc><Esc> :nohl<CR>
+
 let g:vim_markdown_folding_disabled=1
 autocmd BufRead,BufNewFile *.mkd  setfiletype markdown
 autocmd BufRead,BufNewFile *.md  setfiletype markdown
