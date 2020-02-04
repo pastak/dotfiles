@@ -4,7 +4,7 @@ DOT_DIRECTORY=$(pwd)
 xcode-select --install
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
-brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace hub wget gnutls vim
+brew install peco mercurial zsh rbenv ruby-build tmux reattach-to-user-namespace hub wget gnutls vim coreutils
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
 
 mkdir -p ~/.tmux/plugins ~/bin/
