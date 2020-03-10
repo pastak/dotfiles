@@ -19,7 +19,8 @@ git submodule update
 sudo ln -s /usr/local/share/git-core/contrib/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
 
 # tmux-pbcopy
-curl https://gist.githubusercontent.com/pastak/8223238b0c46fcc82db6/raw/gistfile1.txt > ~/bin/tmux-pbcopy
+cp ./tmux-pbcopy ~/bin/tmux-pbcopy
+chmod +x ~/bin/tmux-pbcopy
 
 # dein.vim
 mkdir -p ~/.vim/rc
