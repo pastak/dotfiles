@@ -4,6 +4,7 @@
 [core]
 	editor = /usr/local/bin/vim
 	excludesfile = ~/.gitignore_global
+	ignorecase = false
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [color]
@@ -31,6 +32,7 @@
 	show-ignored = ls-files --exclude-standard --others --ignored
 	show-orphans = !git log --oneline --graph --decorate `git reflog | cut -c1-7`
     delete-merged = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+    see = !open `hub pr show -u`
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
