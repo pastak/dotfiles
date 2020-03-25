@@ -64,12 +64,6 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
 fi
 
 [[ -s "/Users/pastak/.gvm/scripts/gvm" ]] && source "/Users/pastak/.gvm/scripts/gvm"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pastak/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/pastak/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/pastak/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/pastak/google-cloud-sdk/completion.zsh.inc'; fi
 if [ -e /usr/local/share/zsh-completions ]; then
     fpath=(/usr/local/share/zsh-completions $fpath)
 fi
@@ -77,3 +71,9 @@ fpath=($HOME/.zsh/completions $fpath)
 
 # OPAM configuration
 . /Users/pastak/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pastak/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pastak/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pastak/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pastak/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
