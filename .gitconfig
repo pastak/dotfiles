@@ -33,6 +33,7 @@
 	show-orphans = !git log --oneline --graph --decorate `git reflog | cut -c1-7`
     delete-merged = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
     see = !open `hub pr show -u`
+    default-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less

@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh configuration.
+typeset -U path PATH
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="mgutz"
