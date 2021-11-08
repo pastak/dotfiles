@@ -10,3 +10,7 @@ node_modules
 yarn-error.log
 .vscode
 cpanfile.snapshot
+lerna-debug.log
+
+
+isuumo/webapp/node/app.js

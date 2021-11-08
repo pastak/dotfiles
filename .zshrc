@@ -47,7 +47,7 @@ bindkey "^g^a" peco-select-gitadd
 export EDITOR=vim
 source $ZSH/oh-my-zsh.sh
 
-export PATH="$GOPATH/bin:/usr/local/sbin:~/.rbenv/bin:~/bin:/usr/local/share/npm/bin:/usr/local/share/npm/bin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
+export PATH="$GOPATH/bin:/usr/local/sbin:/Users/pastak/.rbenv/bin:/Users/pastak/bin:/usr/local/share/npm/bin:/usr/local/share/npm/bin:/usr/local/share/git-core/contrib/diff-highlight:$PATH"
 alias ls='gls -a --color'
 eval "$(hub alias -s)"
 alias cd-ghq='cd $(ghq list -p | peco)'
@@ -73,7 +73,10 @@ fpath=($HOME/.zsh/completions $fpath)
 . /Users/pastak/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/pastak/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pastak/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f '/Users/pastak/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pastak/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/pastak/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pastak/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f '/Users/pastak/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pastak/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
